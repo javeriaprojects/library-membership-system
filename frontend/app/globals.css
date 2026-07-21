@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --paper: #f4f5f1;
+  --card: #ffffff;
+  --ink: #1f2421;
+  --ink-soft: #5b6259;
+  --forest: #2f4b3f;
+  --forest-deep: #1e3229;
+  --brass: #a67c3d;
+  --stamp-red: #8c3f34;
+  --line: #d8dbd2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(47, 75, 63, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}

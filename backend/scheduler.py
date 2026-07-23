@@ -14,6 +14,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 from database import SessionLocal
 import crud
+from ws_manager import manager
 
 logger = logging.getLogger("uvicorn")
 
@@ -26,6 +27,9 @@ def check_expired_memberships():
         count = crud.deactivate_expired_members(db)
         if count:
             logger.info(f"[scheduler] Deactivated {count} expired membership(s).")
+            # APScheduler runs this on its own background thread, so we
+            # use the threadsafe variant to notify connected browser tabs.
+            manager.broadcast_threadsafe({"type": "members_updated"})
     finally:
         db.close()
 

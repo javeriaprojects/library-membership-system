@@ -1,4 +1,5 @@
-__pycache__/
+﻿__pycache__/
 *.pyc
 library.db
 .venv/
+uploads/*.pdf

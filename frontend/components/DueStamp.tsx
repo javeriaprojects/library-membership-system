@@ -1,7 +1,7 @@
 "use client";
 
 interface DueStampProps {
-  expiryDate: string;
+  expiryDate: string | null;
   isActive: boolean;
 }
 
@@ -11,6 +11,11 @@ function daysRemaining(expiryDate: string): number {
 }
 
 export default function DueStamp({ expiryDate, isActive }: DueStampProps) {
+  // Librarian accounts have no expiry_date at all — nothing to stamp.
+  if (!expiryDate) {
+    return null;
+  }
+
   const days = daysRemaining(expiryDate);
   const expired = !isActive || days < 0;
 
